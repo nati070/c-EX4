@@ -6,29 +6,32 @@ class CircularInt{
         int start, end, number, range;
         
         CircularInt(const CircularInt& clone);
-        
-        /* make this->number in the range */
-        void normalize();
-        
-    public:
-        CircularInt(const int x, const int y);
-        
+public:
+CircularInt(int a, int b);
         int getNumber();
-        CircularInt& operator= (int num);
-        CircularInt operator+ (int num) const;
-        CircularInt operator- (int num) const;
-        CircularInt operator* (int num) const;
-        CircularInt operator/ (int num) const;
-        CircularInt& operator+= (const int num);
-        CircularInt& operator-= (const int num);
-        CircularInt& operator*= (const int num);
-        CircularInt& operator/= (const int num);
-        CircularInt& operator -( CircularInt a);
-        CircularInt& operator++ (); //prefix ++ -> ++(a)
-        const CircularInt operator++ (int); //postfix ++ -> (a)++ 
-        const CircularInt operator- () ;
-        friend ostream& operator<< (ostream& os, const CircularInt& ci);
-        //friend istream& operator>> (istream& is, Complex& c);
+CircularInt& operator -();
+//the normal operators between Object + , - , / , * 
+CircularInt& operator +( CircularInt& a);
+CircularInt& operator *( CircularInt& a);
+CircularInt& operator -( CircularInt& a);
+CircularInt& operator /( CircularInt& a);
+//the opertors between Object to int
+CircularInt& operator /(int num);
+CircularInt& operator /=(int num);
+CircularInt& operator +(int num);
+CircularInt& operator +=(int num);
+CircularInt& operator -(int num);
+CircularInt& operator -=(int num);
+CircularInt& operator *(int num);
+CircularInt& operator *=(int num);
+CircularInt& operator =(int num);
+friend ostream& operator <<(ostream& os,const CircularInt& a);
+friend CircularInt operator -(const int num ,CircularInt& a);
+CircularInt& operator++(int);
+CircularInt& operator--(int);
+
+
+        
         
         
 };
