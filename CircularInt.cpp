@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <vector>
-#include "CircularInt.hpp"
+
 using namespace std;
 
 class CircularInt{
@@ -107,14 +107,14 @@ friend ostream& operator <<(ostream& os,const CircularInt a) {
 }
 
 
-// friend CircularInt operator -(const int num ,CircularInt a){
-//     a = -a;
-//     CircularInt z {num - a.x , a.y};
-//     if(z.x < 0){
-//         z.x  = z.x + z.y;
-//     }
-//     return z;
-// }
+friend CircularInt operator -(const int num ,CircularInt a){
+    a = -a;
+    CircularInt z {num - a.x , a.y};
+    if(z.x < 0){
+        z.x  = z.x + z.y;
+    }
+    return z;
+}
 
 
 
