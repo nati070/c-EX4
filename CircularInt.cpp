@@ -155,11 +155,3 @@ CircularInt& operator--(int){
 
 };
 
-int main(){
-   CircularInt hour {1, 12};                 // <hour is an integer between 1 and 12, like an hour on the clock>
-   hour = hour + 15; cout << hour << endl;
-   hour = hour-18; cout << hour << endl;
-   hour = hour-2; cout << hour << endl;
-    return 0;
-}
-
