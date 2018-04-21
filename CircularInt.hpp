@@ -2,141 +2,30 @@
 using namespace std;
 
 class CircularInt{
-
-private:
-int x;
-int y;
-
-public:
-
-//constarctur
-CircularInt(int a,int b){
-    y = b;
-    x = a%b; 
-}
-//turn against the clock
-CircularInt& operator -() {
-    x = y - x;
-    return *this;
-}
-//the normal operators between Object + , - , / , * 
-CircularInt& operator +( CircularInt a){
-    x = x + a.x;
-    x = x%y;
-    return *this;
-}
-CircularInt& operator *( CircularInt a){
-    x = x * a.x;
-    x = x%y;
-    return *this;
-}
-CircularInt& operator -( CircularInt a){
-    x = x - a.x;
-    x = x%y;
-    return *this;
-}
-CircularInt& operator /( CircularInt a){
-    *this = *this/a.x;
-    return *this;
-}
-
-
-//the opertors between Object to int
-CircularInt& operator /(int num){
-   if(x%num != 0) {
-       throw string("There is no number x in {1,12} such that x*" 
-                      + to_string(num) + "=" + to_string(x));
-   }
-    x = x / num;
-    return *this;
-}
-CircularInt& operator /=(int num){
-   if(x%num != 0) {
-       throw string("There is no number x in {1,12} such that x*" 
-                      + to_string(num) + "=" + to_string(x));
-   }
-    x = x / num;
-    return *this;
-}
-CircularInt& operator +(int num){
-    x = x + num;
-    x = x%y;
-    return *this;
-}
-CircularInt& operator +=(int num) {
-   x = x + num;
-   x = x%y;
-    return *this;
-}
-CircularInt& operator -(int num){
-    int temp = num;
-    num = num%y;
-    x =  x - num;
-    if(temp > y)x=x+y; 
-    return *this;
-}
-CircularInt& operator -=(int num){
-    int temp = num;
-    num = num%y;
-    x =  x - num;
-    if(temp > y)x=x+y; 
-    return *this;
-}
-CircularInt& operator *(int num){
-   x = x * num;
-   x = x%y;
-   return *this;
-}
-
-CircularInt& operator *=(int num){
-   x = x * num;
-   x = x%y;
-   return *this;
-}
-CircularInt& operator =(int num){
-   x = num;
-   return *this;
-}
-
-friend ostream& operator <<(ostream& os,const CircularInt a) {
-    os << a.x;
-    return os;
-}
-
-
-friend CircularInt operator -(const int num ,CircularInt a){
-    a = -a;
-    CircularInt z {num - a.x , a.y};
-    if(z.x < 0){
-        z.x  = z.x + z.y;
-    }
-    return z;
-}
-
-
-
-// CircularInt b& operator =(CircularInt a) {
-//     x = a.x;
-//     y = a.y;
-//     return *this;
-// }
-// CircularInt& operator =(int num) {
-//     x = num;
-//     return *this;
-// }
-
-
-CircularInt& operator++(int){
-   x++;
-   x = x%y;
-    return *this;
-}
-CircularInt& operator--(int){
-   x--;
-    return *this;
-}
-
-
-        
-        
+    private:
+        int x , y;        
+    CircularInt(const CircularInt& clone);
+    public:
+    CircularInt(int a, int b);
+  
+    CircularInt& operator -();
+    //the normal operators between Object + , - , / , * 
+    CircularInt& operator +( CircularInt& a);
+    CircularInt& operator *( CircularInt& a);
+    CircularInt& operator -( CircularInt& a);
+    CircularInt& operator /( CircularInt& a);
+    //the opertors between Object to int
+    CircularInt& operator /(int num);
+    CircularInt& operator /=(int num);
+    CircularInt& operator +(int num);
+    CircularInt& operator +=(int num);
+    CircularInt& operator -(int num);
+    CircularInt& operator -=(int num);
+    CircularInt& operator *(int num);
+    CircularInt& operator *=(int num);
+    CircularInt& operator =(int num);
+    friend ostream& operator <<(ostream& os, CircularInt& a);
+    friend CircularInt operator -(const int num ,CircularInt& a);
+    CircularInt& operator++(int);
+    CircularInt& operator--(int);      
 };
