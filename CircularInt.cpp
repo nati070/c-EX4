@@ -111,6 +111,7 @@ CircularInt&  CircularInt::operator++(int){
 CircularInt&  CircularInt::operator ++(){
     ++x;
     x = x%y;
+    return *this;
 }
 CircularInt&  CircularInt::operator--(int){
    x--;
@@ -119,6 +120,7 @@ CircularInt&  CircularInt::operator--(int){
 CircularInt&  CircularInt::operator --(){
     --x;
     if(x == 0) x = y;
+    return *this;
 }
 
 //Comparison operators/relational operators
