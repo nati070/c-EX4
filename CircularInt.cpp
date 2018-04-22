@@ -9,12 +9,15 @@ CircularInt::CircularInt(int a,int b){
     y = b;
     x = a%b; 
 }
-//turn against the clock
-CircularInt& CircularInt::operator -() {
+// negetive and positive 
+CircularInt& CircularInt::operator -() {//turn against the clock
     x = y - x;
     return *this;
 }
-//the normal operators between Object + , - , / , * 
+CircularInt& CircularInt::operator +() {
+    return *this;
+}
+//the normal operators between Object + , - , / , *  , =  
 CircularInt&  CircularInt::operator +( CircularInt& a){
     x = x + a.x;
     x = x%y;
@@ -34,7 +37,6 @@ CircularInt&  CircularInt::operator /( CircularInt& a){
     *this = *this/a.x;
     return *this;
 }
-
 
 //the opertors between Object to int
 CircularInt&  CircularInt::operator /(int num){
@@ -92,13 +94,6 @@ CircularInt& CircularInt::operator =(int num){
    x = num;
    return *this;
 }
-
-ostream& operator <<(ostream& os, CircularInt& a) {
-    os << a.x;
-    return os;
-}
-
-
 CircularInt operator -(const int num ,CircularInt& a){
     a = -a;
     CircularInt z {num - a.x , a.y};
@@ -107,29 +102,46 @@ CircularInt operator -(const int num ,CircularInt& a){
     }
     return z;
 }
-
-
-
-// CircularInt b& operator =(CircularInt a) {
-//     x = a.x;
-//     y = a.y;
-//     return *this;
-// }
-// CircularInt& operator =(int num) {
-//     x = num;
-//     return *this;
-// }
-
-
+// add one or minus one
 CircularInt&  CircularInt::operator++(int){
    x++;
    x = x%y;
     return *this;
 }
+CircularInt&  CircularInt::operator ++(){
+    ++x;
+    x = x%y;
+}
 CircularInt&  CircularInt::operator--(int){
    x--;
     return *this;
 }
+CircularInt&  CircularInt::operator --(){
+    --x;
+    if(x == 0) x = y;
+}
+
+//Comparison operators/relational operators
+bool CircularInt::operator ==(CircularInt const& a){
+    if (this->x == a.x && this->y == a.y)return true;
+    return false;
+}
+bool CircularInt::operator !=(CircularInt const& a){
+    if (this->x == a.x && this->y == a.y)return false;
+    return true;
+}
+
+ //input anf output operator
+ostream& operator <<(ostream& os, CircularInt& a) {
+    os << a.x;
+    return os;
+}
+istream& operator >>(istream& is, CircularInt& a){  
+    is >> a.x;  
+    return is;  
+}  
+
+
 
 
 
