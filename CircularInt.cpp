@@ -108,7 +108,7 @@ CircularInt&  CircularInt::operator --(){
 
 // //Comparison
 bool operator ==(CircularInt&  a , CircularInt&  b){
-    if (b.x == a.x && b.y == a.y)return true;
+    if (b.x == a.x)return true;
     return false;
 }
 bool operator ==(CircularInt&  a , int num){
@@ -120,7 +120,7 @@ bool operator ==(int num , CircularInt& a){
     return false;
 }
 bool operator !=(CircularInt&  a , CircularInt&  b){
-    if (b.x != a.x && b.y != a.y)return true;
+    if (b.x != a.x)return true;
     return false;
 }
 bool operator !=(CircularInt&  a , int num){
