@@ -95,6 +95,16 @@ CircularInt&  CircularInt::operator ++(){
     x = x%y;
     return *this;
 }
+CircularInt&  CircularInt::operator--(int){
+   x--;
+  while(x < 0) x = x + y;
+    return *this;
+}
+CircularInt&  CircularInt::operator --(){
+    --x;
+     while(x < 0) x = x + y;
+    return *this;
+}
 
 // //Comparison
 bool operator ==(CircularInt&  a , CircularInt&  b){
