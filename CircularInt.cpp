@@ -38,7 +38,7 @@ CircularInt operator /(const int num ,CircularInt& a){
        throw string("There is no number x in {1,12} such that x*" 
                       + to_string(num) + "=" + to_string(z.x));
    }
-    z.x = z.x / num;
+    z.x = num / z.x;
     return z;
 }
 CircularInt operator /(CircularInt& a ,const int num){
@@ -76,7 +76,7 @@ CircularInt& CircularInt::operator *=(int num){
    return *this;
 }
 CircularInt& CircularInt::operator /=(int num){    
-    if(x%num != 0  || x < num) {
+    if(x%num != 0) {
        throw string("There is no number x in {" + to_string(x) + "," + to_string(y) + "} such that x*" 
                       + to_string(num) + "=" + to_string(x));
    }
