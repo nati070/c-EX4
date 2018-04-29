@@ -133,7 +133,7 @@ bool operator !=(int num , CircularInt& a){
 }
 //big or small
 bool operator <(CircularInt&  a , CircularInt&  b){
-    if (b.x < a.x)return true;
+    if (a.x < b.x)return true;
     return false;
 }
 bool operator <(CircularInt&  a , int num){
@@ -141,11 +141,11 @@ bool operator <(CircularInt&  a , int num){
     return false;
 }
 bool operator <(int num , CircularInt& a){
-    if(a.x < num)return true;
+    if(num < a.x)return true;
     return false;
 }
 bool operator >(CircularInt&  a , CircularInt&  b){
-    if (b.x > a.x)return true;
+    if (a.x > b.x)return true;
     return false;
 }
 bool operator >(CircularInt&  a , int num){
@@ -153,11 +153,11 @@ bool operator >(CircularInt&  a , int num){
     return false;
 }
 bool operator >(int num , CircularInt& a){
-    if(a.x > num)return true;
+    if(num > a.x)return true;
     return false;
 }
 bool operator >=(CircularInt&  a , CircularInt&  b){
-    if (b.x >= a.x)return true;
+    if (a.x >= b.x)return true;
     return false;
 }
 bool operator >=(CircularInt&  a , int num){
@@ -165,7 +165,7 @@ bool operator >=(CircularInt&  a , int num){
     return false;
 }
 bool operator >=(int num , CircularInt& a){
-    if(a.x >= num)return true;
+    if(num >= a.x)return true;
     return false;
 }
 bool operator <=(CircularInt&  a , CircularInt&  b){
@@ -177,7 +177,7 @@ bool operator <=(CircularInt&  a , int num){
     return false;
 }
 bool operator <=(int num , CircularInt& a){
-    if(a.x <= num)return true;
+    if(num <= a.x)return true;
     return false;
 }
 

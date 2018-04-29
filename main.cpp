@@ -23,6 +23,10 @@ int main() {
 	}
 	hour = 12;
 	cout << hour - 15 << endl;
+	cout << hour  << endl;
+	hour = 3*2;
+	cout << hour<< endl;
+	cout << hour * hour<< endl;
 	// RIDDLES (not for submission): 
 	//  * when is there exactly one answer to a/b?
 	//  * when are there two or more answers to a/b?
