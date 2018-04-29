@@ -8,6 +8,10 @@ using namespace std;
 CircularInt::CircularInt(int a,int b){
     y = b;
     x = a; 
+    if(x > y){
+        x = b;
+        y = a;
+    }
 }
 //negetive and positive 
 CircularInt CircularInt::operator -() {//turn against the clock
@@ -193,12 +197,10 @@ bool operator <=(CircularInt&  a , CircularInt&  b){
     return false;
 }
 bool operator <=(CircularInt&  a , int num){
-    normalization(a.x, a);
     if(a.x <= num)return true;
     return false;
 }
 bool operator <=(int num , CircularInt& a){
-    normalization(a.x, a);
     if(num <= a.x)return true;
     return false;
 }

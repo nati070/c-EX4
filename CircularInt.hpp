@@ -58,8 +58,8 @@ class CircularInt{
     
     public:
     CircularInt(int a, int b);
-    friend void normalization(int num, CircularInt& c) {  // normalization function
-    int end = c.y;
+    friend void normalization(int num, CircularInt& a) {  // normalization function
+    int end = a.y;
     if(num > end){
         while(num > end){
           num = num - end;
@@ -70,7 +70,7 @@ class CircularInt{
          num = num + end;   
         }
     }
-    c.x = num;
+    a.x = num;
     }
 
     CircularInt& operator =(int num);
