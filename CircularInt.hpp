@@ -14,9 +14,11 @@ class CircularInt{
     
 //     //the opertors between Object to int
    
-   
-    
+    friend CircularInt operator -(CircularInt& a ,CircularInt& b);
+    friend CircularInt operator -(CircularInt& a ,const int num);
     friend CircularInt operator -(const int num ,CircularInt& a);
+    friend CircularInt operator -=(CircularInt& a ,CircularInt& b);
+    friend CircularInt operator -=(CircularInt& a ,const int num);
     friend CircularInt operator /(const int num ,CircularInt& a);
     friend CircularInt operator /(CircularInt& a , const int num);
     friend CircularInt operator +(const int num , CircularInt& a);

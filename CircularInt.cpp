@@ -214,6 +214,39 @@ CircularInt operator *=(CircularInt& a ,CircularInt& b){
     normalization(num1, t);
     return t;
 }
+CircularInt operator -(CircularInt& a ,CircularInt& b){
+    CircularInt t = a;
+    int num1 = a.x - b.x;
+    normalization(num1, t);
+    return t;
+}
+CircularInt operator -=(CircularInt& a ,CircularInt& b){
+    CircularInt t = a;
+    int num1 = a.x - b.x;
+    normalization(num1, t);
+    return t;
+}
+CircularInt operator- (CircularInt& a, const int num){
+    CircularInt t = a;
+    int num1 =  num - a.x;
+    normalization(num1 , t);
+    return t;
+}
+CircularInt operator- (const int num , CircularInt& a){
+    CircularInt t = a;
+    int num1 =  num - a.x;
+    normalization(num1 , t);
+    return t;
+}
+CircularInt operator-= (CircularInt& a, const int num){
+    CircularInt t = a;
+    int num1 =  num - a.x;
+    normalization(num1 , t);
+    return t;
+}
+
+
+
 
 
 
