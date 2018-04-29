@@ -118,7 +118,6 @@ bool operator ==(CircularInt&  a , CircularInt&  b){
     return false;
 }
 bool operator ==(CircularInt&  a , int num){
-     normalization(a.x, a);
     if(a.x == num)return true;
     return false;
 }
