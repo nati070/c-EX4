@@ -81,6 +81,7 @@ CircularInt& CircularInt::operator /=(int num){
                       + to_string(num) + "=" + to_string(x));
    }
     x = x / num;
+    x = x % y;
     return *this;
 }
 
