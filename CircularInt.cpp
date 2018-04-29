@@ -45,13 +45,13 @@ CircularInt operator /(CircularInt& a ,const int num){
     z.x = z.x / num;
     return z;
 }
-CircularInt operator+ (CircularInt& a, int num){
+CircularInt operator+ (CircularInt& a, const int num){
     CircularInt t = a;
     int num1 =  num + a.x;
     normalization(num1 , t);
     return t;
 }
-CircularInt operator+ (int num , CircularInt& a){
+CircularInt operator+ (const int num , CircularInt& a){
     CircularInt t = a;
     int num1 =  num + a.x;
     normalization(num1 , t);
@@ -133,6 +133,10 @@ bool operator <(int num , CircularInt& a){
     if(a.x < num)return true;
     return false;
 }
+bool operator <=(CircularInt&  a , CircularInt&  b){
+    if (b.x <= a.x)return true;
+    return false;
+}
 bool operator >(CircularInt&  a , CircularInt&  b){
     if (b.x > a.x)return true;
     return false;
@@ -145,25 +149,30 @@ bool operator >(int num , CircularInt& a){
     if(a.x > num)return true;
     return false;
 }
+bool operator >=(CircularInt&  a , CircularInt&  b){
+    if (b.x >= a.x)return true;
+    return false;
+}
 
-
-
-
-
-// bool CircularInt::operator !=(CircularInt const& a){
-//     if (this->x == a.x && this->y == a.y)return false;
-//     return true;
-// }
 
 //  //input anf output operator
 ostream& operator <<(ostream& os, const CircularInt& a) {
     os << a.x;
     return os;
 }
-// istream& operator >>(istream& is,const  CircularInt& a){  
-//     is >> a.x;  
-//     return is;  
-// }  
+
+istream& operator >>(istream& is, CircularInt& a){  
+    is >> a.x;  
+    return is;  
+}  
+CircularInt& CircularInt::operator =(const int num){
+    normalization(num,*this);
+    return *this;
+}
+
+
+    
+
 
 
 

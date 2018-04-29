@@ -15,12 +15,13 @@ class CircularInt{
 //     //the opertors between Object to int
    
    
-//     CircularInt& operator =(int num);
+    
     friend CircularInt operator -(const int num ,CircularInt& a);
     friend CircularInt operator /(const int num ,CircularInt& a);
     friend CircularInt operator /(CircularInt& a , const int num);
-    friend CircularInt operator +(int num , CircularInt& a);
-    friend CircularInt operator +(CircularInt& a , int num);
+    friend CircularInt operator +(const int num , CircularInt& a);
+    friend CircularInt operator +(CircularInt& a , const int num);
+    
     
  
 //     // boolean operator
@@ -33,14 +34,16 @@ class CircularInt{
      friend bool operator <(CircularInt&  a , CircularInt&  b);
      friend bool operator <(CircularInt&  a , int num);
      friend bool operator <(int num , CircularInt&  a);
+     friend bool operator <=(CircularInt&  a , CircularInt&  b);
      friend bool operator >(CircularInt&  a , CircularInt&  b);
      friend bool operator >(CircularInt&  a , int num);
      friend bool operator >(int num , CircularInt&  a);
+     friend bool operator >=(CircularInt&  a , CircularInt&  b);
 //     bool operator !=(CircularInt const&  b);
 
 //     //input anf output operator
        friend ostream& operator <<(ostream& os, const CircularInt& a);
-//     friend istream& operator >> (istream& is, const CircularInt& a);
+       friend istream& operator >> (istream& is,  CircularInt& a);
 //     friend ostream& operator <<=(ostream& os, const CircularInt& a);
 
     
@@ -59,7 +62,7 @@ class CircularInt{
     c.x = num;
     }
 
-
+CircularInt& operator =(int num);
 //      CircularInt& operator /(int num);
 //     CircularInt& operator /=(int num);
     CircularInt& operator +=(int num);
