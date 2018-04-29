@@ -21,6 +21,12 @@ class CircularInt{
     friend CircularInt operator /(CircularInt& a , const int num);
     friend CircularInt operator +(const int num , CircularInt& a);
     friend CircularInt operator +(CircularInt& a , const int num);
+    friend CircularInt operator +=(CircularInt& a ,CircularInt& b);
+    friend CircularInt operator *(const int num , CircularInt& a);
+    friend CircularInt operator *(CircularInt& a , const int num);
+    friend CircularInt operator *(CircularInt& a ,CircularInt& b);
+    friend CircularInt operator *=(CircularInt& a ,CircularInt& b);
+    
     
     
  
@@ -39,6 +45,12 @@ class CircularInt{
      friend bool operator >(CircularInt&  a , int num);
      friend bool operator >(int num , CircularInt&  a);
      friend bool operator >=(CircularInt&  a , CircularInt&  b);
+     friend bool operator >=(CircularInt&  a , int num);
+     friend bool operator >=(int num , CircularInt&  a);
+     friend bool operator <=(CircularInt&  a , CircularInt&  b);
+     friend bool operator <=(CircularInt&  a , int num);
+     friend bool operator <=(int num , CircularInt&  a);
+     
 //     bool operator !=(CircularInt const&  b);
 
 //     //input anf output operator

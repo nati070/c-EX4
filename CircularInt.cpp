@@ -25,6 +25,12 @@ CircularInt operator +(CircularInt& a ,CircularInt& b){
     normalization(num1, t);
     return t;
 }
+CircularInt operator +=(CircularInt& a ,CircularInt& b){
+    CircularInt t = a;
+    int num1 = a.x + b.x;
+    normalization(num1, t);
+    return t;
+}
 CircularInt operator /(const int num ,CircularInt& a){
     CircularInt z = a;
     
@@ -51,6 +57,7 @@ CircularInt operator+ (CircularInt& a, const int num){
     normalization(num1 , t);
     return t;
 }
+
 CircularInt operator+ (const int num , CircularInt& a){
     CircularInt t = a;
     int num1 =  num + a.x;
@@ -59,7 +66,7 @@ CircularInt operator+ (const int num , CircularInt& a){
 }
 CircularInt& CircularInt::operator +=(int num) {
    num = x + num;
-   normalization(num ,*this );
+   normalization(num ,*this);
     return *this;
 }
 
@@ -133,10 +140,6 @@ bool operator <(int num , CircularInt& a){
     if(a.x < num)return true;
     return false;
 }
-bool operator <=(CircularInt&  a , CircularInt&  b){
-    if (b.x <= a.x)return true;
-    return false;
-}
 bool operator >(CircularInt&  a , CircularInt&  b){
     if (b.x > a.x)return true;
     return false;
@@ -153,6 +156,29 @@ bool operator >=(CircularInt&  a , CircularInt&  b){
     if (b.x >= a.x)return true;
     return false;
 }
+bool operator >=(CircularInt&  a , int num){
+    if(a.x >= num)return true;
+    return false;
+}
+bool operator >=(int num , CircularInt& a){
+    if(a.x >= num)return true;
+    return false;
+}
+bool operator <=(CircularInt&  a , CircularInt&  b){
+    if (b.x <= a.x)return true;
+    return false;
+}
+bool operator <=(CircularInt&  a , int num){
+    if(a.x <= num)return true;
+    return false;
+}
+bool operator <=(int num , CircularInt& a){
+    if(a.x <= num)return true;
+    return false;
+}
+
+
+
 
 
 //  //input anf output operator
@@ -169,6 +195,26 @@ CircularInt& CircularInt::operator =(const int num){
     normalization(num,*this);
     return *this;
 }
+
+CircularInt operator* (CircularInt& a, const int num){
+    CircularInt t = a;
+    int num1 =  num * a.x;
+    normalization(num1 , t);
+    return t;
+}
+CircularInt operator *(CircularInt& a ,CircularInt& b){
+    CircularInt t = a;
+    int num1 = a.x * b.x;
+    normalization(num1, t);
+    return t;
+}
+CircularInt operator *=(CircularInt& a ,CircularInt& b){
+    CircularInt t = a;
+    int num1 = a.x * b.x;
+    normalization(num1, t);
+    return t;
+}
+
 
 
     
