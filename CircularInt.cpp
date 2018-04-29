@@ -145,54 +145,52 @@ bool operator !=(int num , CircularInt& a){
 }
 //big or small
 bool operator <(CircularInt&  a , CircularInt&  b){
-     normalization(a.x, a);
-      normalization(b.x, b);
+     
     if (a.x < b.x)return true;
     return false;
 }
 bool operator <(CircularInt&  a , int num){
-    normalization(a.x, a);
+   
     if(a.x < num)return true;
     return false;
 }
 bool operator <(int num , CircularInt& a){
-    normalization(a.x, a);
+
     if(num < a.x)return true;
     return false;
 }
 bool operator >(CircularInt&  a , CircularInt&  b){
-    normalization(a.x, a);
+
     if (a.x > b.x)return true;
     return false;
 }
 bool operator >(CircularInt&  a , int num){
-    normalization(a.x, a);
+
     if(a.x > num)return true;
     return false;
 }
 bool operator >(int num , CircularInt& a){
-    normalization(a.x, a);
+    
     if(num > a.x)return true;
     return false;
 }
 bool operator >=(CircularInt&  a , CircularInt&  b){
-    normalization(a.x, a);
+   
     if (a.x >= b.x)return true;
     return false;
 }
 bool operator >=(CircularInt&  a , int num){
-    normalization(a.x, a);
+   
     if(a.x >= num)return true;
     return false;
 }
 bool operator >=(int num , CircularInt& a){
-    normalization(a.x, a);
+
     if(num >= a.x)return true;
     return false;
 }
 bool operator <=(CircularInt&  a , CircularInt&  b){
-    normalization(a.x, a);
-      normalization(b.x, b);
+
     if (b.x <= a.x)return true;
     return false;
 }
