@@ -63,11 +63,18 @@ CircularInt& CircularInt::operator +=(int num) {
     return *this;
 }
 
-
-CircularInt&  CircularInt::operator *=(int num){
+CircularInt& CircularInt::operator *=(int num){
    x = x * num;
    x = x%y;
    return *this;
+}
+CircularInt& CircularInt::operator /=(int num){    
+    if(x%num != 0) {
+       throw string("There is no number x in {1,12} such that x*" 
+                      + to_string(num) + "=" + to_string(x));
+   }
+    x = x / num;
+    return *this;
 }
 
 CircularInt operator -(const int num ,CircularInt& a){
@@ -99,6 +106,18 @@ bool operator ==(CircularInt&  a , int num){
 }
 bool operator ==(int num , CircularInt& a){
     if(a.x == num)return true;
+    return false;
+}
+bool operator !=(CircularInt&  a , CircularInt&  b){
+    if (b.x != a.x && b.y != a.y)return true;
+    return false;
+}
+bool operator !=(CircularInt&  a , int num){
+    if(a.x != num)return true;
+    return false;
+}
+bool operator !=(int num , CircularInt& a){
+    if(a.x != num)return true;
     return false;
 }
 //big or small

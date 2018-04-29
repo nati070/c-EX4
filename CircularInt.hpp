@@ -27,6 +27,9 @@ class CircularInt{
      friend bool operator ==(CircularInt&  a , CircularInt&  b);
      friend bool operator ==(CircularInt&  a , int num);
      friend bool operator ==(int num , CircularInt&  a);
+     friend bool operator !=(CircularInt&  a , CircularInt&  b);
+     friend bool operator !=(CircularInt&  a , int num);
+     friend bool operator !=(int num , CircularInt&  a);
      friend bool operator <(CircularInt&  a , CircularInt&  b);
      friend bool operator <(CircularInt&  a , int num);
      friend bool operator <(int num , CircularInt&  a);
@@ -62,6 +65,7 @@ class CircularInt{
     CircularInt& operator +=(int num);
 //     CircularInt& operator -=(int num);
     CircularInt& operator *=(int num);
+    CircularInt& operator /=(int num);
 //        // add one or minus one
     CircularInt& operator++(int);
     CircularInt& operator ++();
