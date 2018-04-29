@@ -84,12 +84,6 @@ CircularInt& CircularInt::operator /=(int num){
     return *this;
 }
 
-CircularInt operator -(const int num ,CircularInt& a){
-    CircularInt z = a;
-    int num1 = num - z.x;
-    normalization(num1 , z);
-    return z;
- }
 // // add one or minus one
 CircularInt&  CircularInt::operator++(int){
    x++;
