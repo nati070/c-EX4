@@ -77,7 +77,7 @@ CircularInt& CircularInt::operator *=(int num){
 }
 CircularInt& CircularInt::operator /=(int num){    
     if(x%num != 0) {
-       throw string("There is no number x in {1,12} such that x*" 
+       throw string("There is no number x in {" + to_string(x) + "," + to_string(y) + "} such that x*" 
                       + to_string(num) + "=" + to_string(x));
    }
     x = x / num;
