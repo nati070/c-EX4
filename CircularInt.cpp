@@ -76,12 +76,11 @@ CircularInt& CircularInt::operator *=(int num){
    return *this;
 }
 CircularInt& CircularInt::operator /=(int num){    
-    if(x%num != 0) {
+    if(x%num != 0  || x < num) {
        throw string("There is no number x in {" + to_string(x) + "," + to_string(y) + "} such that x*" 
                       + to_string(num) + "=" + to_string(x));
    }
     x = x / num;
-    x = x % y;
     return *this;
 }
 
@@ -96,7 +95,7 @@ CircularInt&  CircularInt::operator ++(){
     x = x%y;
     return *this;
 }
-CircularInt&  CircularInt::operator--(int){
+CircularInt& CircularInt::operator --(int){
    x--;
   while(x < 0) x = x + y;
     return *this;
