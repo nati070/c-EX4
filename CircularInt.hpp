@@ -4,42 +4,72 @@ using namespace std;
 class CircularInt{
     private:
         int x , y;        
-    CircularInt(const CircularInt& clone);
+    
+    
+//the normal operators between Object + , - , / , * 
+     friend CircularInt  operator +(CircularInt& a ,CircularInt& b);
+//     CircularInt& operator *( CircularInt& a);
+//     CircularInt& operator -( CircularInt& a);
+//     CircularInt& operator /( CircularInt& a);
+    
+//     //the opertors between Object to int
+   
+   
+//     CircularInt& operator =(int num);
+    friend CircularInt operator -(const int num ,CircularInt& a);
+    friend CircularInt operator /(const int num ,CircularInt& a);
+    friend CircularInt operator /(CircularInt& a , const int num);
+    friend CircularInt operator +(int num , CircularInt& a);
+    friend CircularInt operator +(CircularInt& a , int num);
+    
+ 
+//     // boolean operator
+     friend bool operator ==(CircularInt&  a , CircularInt&  b);
+     friend bool operator ==(CircularInt&  a , int num);
+     friend bool operator ==(int num , CircularInt&  a);
+     friend bool operator <(CircularInt&  a , CircularInt&  b);
+     friend bool operator <(CircularInt&  a , int num);
+     friend bool operator <(int num , CircularInt&  a);
+     friend bool operator >(CircularInt&  a , CircularInt&  b);
+     friend bool operator >(CircularInt&  a , int num);
+     friend bool operator >(int num , CircularInt&  a);
+//     bool operator !=(CircularInt const&  b);
+
+//     //input anf output operator
+       friend ostream& operator <<(ostream& os, const CircularInt& a);
+//     friend istream& operator >> (istream& is, const CircularInt& a);
+//     friend ostream& operator <<=(ostream& os, const CircularInt& a);
+
+    
     public:
     CircularInt(int a, int b);
-    // negetive and positive 
-    CircularInt& operator -();
-    CircularInt& operator +();
-    //the normal operators between Object + , - , / , * 
-    CircularInt& operator +( CircularInt& a);
-    CircularInt& operator *( CircularInt& a);
-    CircularInt& operator -( CircularInt& a);
-    CircularInt& operator /( CircularInt& a);
-    
-    //the opertors between Object to int
-    CircularInt& operator /(int num);
-    CircularInt& operator /=(int num);
-    CircularInt& operator +(int num);
+    friend void normalization(int num, CircularInt& c) {  // normalization function
+    int end = c.y;
+    if(num > end){
+       num = num%end;
+    }
+    if(num < 0){
+        while(num < 0){
+         num = num + end;   
+        }
+    }
+    c.x = num;
+    }
+
+
+//      CircularInt& operator /(int num);
+//     CircularInt& operator /=(int num);
     CircularInt& operator +=(int num);
-    CircularInt& operator -(int num);
-    CircularInt& operator -=(int num);
-    CircularInt& operator *(int num);
+//     CircularInt& operator -=(int num);
     CircularInt& operator *=(int num);
-    CircularInt& operator =(int num);
-    friend CircularInt operator -(const int num ,CircularInt& a);
-    
-    // add one or minus one
+//        // add one or minus one
     CircularInt& operator++(int);
     CircularInt& operator ++();
     CircularInt& operator--(int);
-    CircularInt&  operator --();      
+    CircularInt&  operator --();     
 
-    // boolean operator
-    bool operator ==(CircularInt const&  b);
-    bool operator !=(CircularInt const&  b);
+//     // negetive and positive 
+     CircularInt operator -();
+//     CircularInt& operator +(); 
 
-    //input anf output operator
-    friend ostream& operator <<(ostream& os, CircularInt& a);
-    friend istream& operator >> (istream& is, CircularInt& a);
-    friend ostream& operator <<=(ostream& os, CircularInt& a);
-};
+ };
