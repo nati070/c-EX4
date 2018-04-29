@@ -50,13 +50,10 @@ class CircularInt{
      friend bool operator <=(CircularInt&  a , CircularInt&  b);
      friend bool operator <=(CircularInt&  a , int num);
      friend bool operator <=(int num , CircularInt&  a);
-     
-//     bool operator !=(CircularInt const&  b);
 
 //     //input anf output operator
        friend ostream& operator <<(ostream& os, const CircularInt& a);
        friend istream& operator >> (istream& is,  CircularInt& a);
-//     friend ostream& operator <<=(ostream& os, const CircularInt& a);
 
     
     public:
@@ -64,7 +61,9 @@ class CircularInt{
     friend void normalization(int num, CircularInt& c) {  // normalization function
     int end = c.y;
     if(num > end){
-       num = num%end;
+        while(num > end){
+          num = num - end;
+        }
     }
     if(num < 0){
         while(num < 0){
@@ -74,13 +73,11 @@ class CircularInt{
     c.x = num;
     }
 
-CircularInt& operator =(int num);
-//      CircularInt& operator /(int num);
-//     CircularInt& operator /=(int num);
+    CircularInt& operator =(int num);
     CircularInt& operator +=(int num);
-//     CircularInt& operator -=(int num);
     CircularInt& operator *=(int num);
     CircularInt& operator /=(int num);
+
 //        // add one or minus one
     CircularInt& operator++(int);
     CircularInt& operator ++();

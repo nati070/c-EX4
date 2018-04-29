@@ -7,7 +7,7 @@ using namespace std;
 //constarctur
 CircularInt::CircularInt(int a,int b){
     y = b;
-    x = a%b; 
+    x = a; 
 }
 //negetive and positive 
 CircularInt CircularInt::operator -() {//turn against the clock
@@ -108,6 +108,8 @@ CircularInt&  CircularInt::operator --(){
 
 // //Comparison
 bool operator ==(CircularInt&  a , CircularInt&  b){
+    normalization(a.x, a);
+    normalization(b.x, b);
     if (b.x == a.x)return true;
     return false;
 }
@@ -180,10 +182,6 @@ bool operator <=(int num , CircularInt& a){
     if(num <= a.x)return true;
     return false;
 }
-
-
-
-
 
 //  //input anf output operator
 ostream& operator <<(ostream& os, const CircularInt& a) {

@@ -22,7 +22,8 @@ int main() {
 		cout << message << endl;     // "There is no number x in {1,12} such that x*3=10"
 	}
 	hour = 12;
-	cout << 18/hour << endl; 
+	cout << hour - 15 << endl;
+	cout << hour  << endl;
 
 	// RIDDLES (not for submission): 
 	//  * when is there exactly one answer to a/b?
