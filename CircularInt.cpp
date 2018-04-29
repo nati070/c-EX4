@@ -232,7 +232,7 @@ CircularInt operator -=(CircularInt& a ,CircularInt& b){
 }
 CircularInt operator- (CircularInt& a, const int num){
     CircularInt t = a;
-    int num1 =  num - a.x;
+    int num1 = a.x - num;
     normalization(num1 , t);
     return t;
 }
@@ -244,7 +244,7 @@ CircularInt operator- (const int num , CircularInt& a){
 }
 CircularInt operator-= (CircularInt& a, const int num){
     CircularInt t = a;
-    int num1 =  num - a.x;
+    int num1 =  a.x - num;
     normalization(num1 , t);
     return t;
 }

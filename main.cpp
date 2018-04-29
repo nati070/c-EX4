@@ -21,8 +21,8 @@ int main() {
 	} catch (const string& message) {
 		cout << message << endl;     // "There is no number x in {1,12} such that x*3=10"
 	}
-	hour = 3;
-	cout << hour << endl;
+	hour = 12;
+	cout << hour - 15 << endl;
 	// RIDDLES (not for submission): 
 	//  * when is there exactly one answer to a/b?
 	//  * when are there two or more answers to a/b?
