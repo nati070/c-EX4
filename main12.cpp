@@ -341,58 +341,57 @@ std::string cirToString(const CircularInt &circularInt)
 // }
 
 
-TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," ) {
-	CircularInt tmp1 {3,12};
-	CircularInt tmp2 {3,12};
-	tmp1/=tmp2;
-    cout << tmp1;
-	//REQUIRE(tmp1.GetValue() == 11);
-	//REQUIRE(tmp2.GetValue() == 3);
+// TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," ) {
+// 	CircularInt tmp1 {3,12};
+// 	CircularInt tmp2 {3,12};
+// 	tmp1/=tmp2;
+// 	// REQUIRE(tmp1.GetValue() == 11);
+// 	// REQUIRE(tmp2.GetValue() == 3);
 	
-	// CircularInt tmp3 {2,8};
-	// tmp1/=tmp3;
-	// REQUIRE(tmp1.GetValue() == 11);
+// 	// CircularInt tmp3 {2,8};
+// 	// tmp1/=tmp3;
+// 	// REQUIRE(tmp1.GetValue() == 11);
 
 
-	// CircularInt tmp11 {-3,2};
-	// CircularInt tmp22 {-3,2};
-	// tmp11/=tmp22;
-	// REQUIRE(tmp11.GetValue() == -3);
-	// REQUIRE(tmp22.GetValue() == -3);
+// 	CircularInt tmp11 {-3,2};
+// 	CircularInt tmp22 {-3,2};
+// 	tmp11/=tmp22;
+// 	// REQUIRE(tmp11.GetValue() == -3);
+// 	// // REQUIRE(tmp22.GetValue() == -3);
 	
-	// CircularInt tmp33 {2,8};
-	// tmp11/=tmp33;
-	// REQUIRE(tmp11.GetValue() == -3);
+// 	// CircularInt tmp33 {2,8};
+// 	// tmp11/=tmp33;
+// 	// REQUIRE(tmp11.GetValue() == -3);
 
-	// // CircularInt tmp111 {-5,-2};
-	// // tmp111=tmp111+1;
-	// // CircularInt tmp222 {-3,-1};
-	// // tmp111/=tmp222;
-	// // REQUIRE(tmp222.GetValue() == -3);
+// 	// // CircularInt tmp111 {-5,-2};
+// 	// // tmp111=tmp111+1;
+// 	// // CircularInt tmp222 {-3,-1};
+// 	// // tmp111/=tmp222;
+// 	// // REQUIRE(tmp222.GetValue() == -3);
 	
-}
-
-// TEST_CASE("testing the operation +  ") {
-// 	CircularInt a {3, 10};
-// 	CircularInt b {1, 10};
-// 	CircularInt c {1, 10};
-// 	b+=3;
-// 	a=a+b;
-//    	REQUIRE(a.GetValue() == 7);
-// 	a=a+b;
-//    	REQUIRE(a.GetValue() == 3);
-// 	a=c+b;
-//    	REQUIRE(a.GetValue() == 5);
-
-// 	CircularInt d {-3, 1};
-// 	CircularInt e {-5, -2};	
-// 	d=d+e;
-//    	REQUIRE(d.GetValue() == -3);
-// 	d=e+a;
-//    	REQUIRE(d.GetValue() == -4);
 // }
 
-// TEST_CASE("testing the operation - ") {
+// // TEST_CASE("testing the operation +  ") {
+// // 	CircularInt a {3, 10};
+// // 	CircularInt b {1, 10};
+// // 	CircularInt c {1, 10};
+// // 	b+=3;
+// // 	a=a+b;
+// //    	REQUIRE(a.GetValue() == 7);
+// // 	a=a+b;
+// //    	REQUIRE(a.GetValue() == 3);
+// // 	a=c+b;
+// //    	REQUIRE(a.GetValue() == 5);
+
+// // 	CircularInt d {-3, 1};
+// // 	CircularInt e {-5, -2};	
+// // 	d=d+e;
+// //    	REQUIRE(d.GetValue() == -3);
+// // 	d=e+a;
+// //    	REQUIRE(d.GetValue() == -4);
+// // }
+
+// TEST_CASE("testing the operation - " ,"") {
 // 	CircularInt a {3, 10};
 // 	CircularInt b {1, 10};
 // 	CircularInt c {1, 10};
@@ -412,7 +411,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 //    	REQUIRE(d.GetValue() == -2);
 // }
 
-// TEST_CASE("testing the operation * ") {
+// TEST_CASE("testing the operation * " ,",") {
 // 	CircularInt a {3, 10};
 // 	CircularInt b {1, 10};
 // 	CircularInt c {1, 10};
@@ -433,7 +432,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 // }
 
 
-// TEST_CASE("testing the operation /") {
+// TEST_CASE("testing the operation /" ,",") {
 // 	CircularInt a {4, 10};
 // 	CircularInt b {2, 10};
 // 	CircularInt c {2, 10};
@@ -441,15 +440,15 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 //    	REQUIRE(a.GetValue() == 9);
 // 	a=a/b;
 //    	REQUIRE(a.GetValue() == 8);
-// 	a=c/b;
-//    	REQUIRE(a.GetValue() == 10);
+// 	// a=c/b;
+//    	// REQUIRE(a.GetValue() == 10);
 
-// 	CircularInt d {-3, 1};
-// 	CircularInt e {-4, -2};	
-// 	d=d/e;
-//    	REQUIRE(d.GetValue() == -3);
-// 	d=e/a;
-//    	REQUIRE(d.GetValue() == -4);
+// 	// CircularInt d {-3, 1};
+// 	// CircularInt e {-4, -2};	
+// 	// d=d/e;
+//    	// REQUIRE(d.GetValue() == -3);
+// 	// d=e/a;
+//    	// REQUIRE(d.GetValue() == -4);
 	
 // }
 
@@ -499,7 +498,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 //    	REQUIRE(c.GetValue() ==-2);
 // }
 
-// TEST_CASE("testing the operator- function where CircularInt-int" ) {
+// TEST_CASE("testing the operator- function where CircularInt-int", "," ) {
 	
 // 	CircularInt tmp1 {1,12};
 // 	CircularInt cop(tmp1);
@@ -523,7 +522,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 
 // }
 
-// TEST_CASE("testing the operator-= function where CircularInt-int" ) {
+// TEST_CASE("testing the operator-= function where CircularInt-int" , "") {
 
 // 	CircularInt tmp1 {1,12};
 // 	tmp1-=7;
@@ -545,7 +544,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 // }
 
 
-// TEST_CASE("testing the operator- function where int-CircularInt" ) {
+// TEST_CASE("testing the operator- function where int-CircularInt" , "") {
 
 // 	CircularInt tmp1 {1,12};
 // 	CircularInt cop(tmp1);
@@ -597,12 +596,12 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 
 // }
 
-// TEST_CASE("testing the operator+= function where CircularInt+=CircularInt" ) {
+// TEST_CASE("testing the operator+= function where CircularInt+=CircularInt" ,"" ) {
 // 	CircularInt tmp1 {1,12};
 // 	CircularInt tmp2 {1,12};
 // 	tmp1+=tmp2;
-// 	REQUIRE(tmp1.GetValue() == 2);
-// 	REQUIRE(tmp2.GetValue() == 1);
+// 	// REQUIRE(tmp1.GetValue() == 2);
+// 	// REQUIRE(tmp2.GetValue() == 1);
 	
 // 	CircularInt tmp3 {6,8};
 // 	tmp1+=tmp3;
@@ -626,7 +625,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 // }
 
 
-// TEST_CASE("testing the operator-= function where CircularInt-=CircularInt" ) {
+// TEST_CASE("testing the operator-= function where CircularInt-=CircularInt ", ",") {
 // 	CircularInt tmp1 {1,12};
 // 	CircularInt tmp2 {1,12};
 // 	tmp1-=tmp2;
@@ -655,7 +654,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 // }
 
 
-// TEST_CASE("testing the operator*= function where CircularInt*=CircularInt" ) {
+// TEST_CASE("testing the operator*= function where CircularInt*=CircularInt" ,"") {
 // 	CircularInt tmp1 {1,12};
 // 	CircularInt tmp2 {1,12};
 // 	tmp1*=tmp2;
@@ -931,7 +930,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 
 // }
 
-// TEST_CASE("testing the operator ++prefix" ) {
+// TEST_CASE("testing the operator ++prefix"  ,"" ) {
 // 	CircularInt a1 {1,12};
 // 	++a1;
 // 	REQUIRE(a1.GetValue() == 2);
@@ -941,7 +940,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 
 // }
 
-// TEST_CASE("testing the operator --prefix" ) {
+// TEST_CASE("testing the operator --prefix"  ,"" ) {
 // 	CircularInt a1 {1,12};
 // 	--a1;
 // 	REQUIRE(a1.GetValue() == 12);
@@ -951,7 +950,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 // }
 
 
-// TEST_CASE("testing the operator postfix--" ) {
+// TEST_CASE("testing the operator postfix--" ,"" ) {
 // 	CircularInt a1 {-3,1};
 // 	a1--;
 // 	REQUIRE(a1.GetValue() == 1);
@@ -964,7 +963,7 @@ TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," 
 
 
 
-// TEST_CASE("testing the operator postfix--" ) {
+// TEST_CASE("testing the operator postfix--" ,".") {
 // 	CircularInt a1 {-3,1};
 // 	a1++;
 // 	REQUIRE(a1.GetValue() == -2);

@@ -14,8 +14,7 @@ class CircularInt{
     friend CircularInt operator -(CircularInt& a ,CircularInt& b);
     friend CircularInt operator -(CircularInt& a ,const int num);
     friend CircularInt operator -(const int num ,CircularInt& a);
-    friend CircularInt operator -=(CircularInt& a ,CircularInt& b);
-    friend CircularInt operator -=(CircularInt& a ,const int num);
+   
     friend CircularInt operator /(const int num ,CircularInt& a);
     friend CircularInt operator /(CircularInt& a , const int num);
     friend CircularInt operator /(CircularInt& a ,CircularInt& b);
@@ -23,11 +22,11 @@ class CircularInt{
     friend CircularInt operator +(CircularInt& a ,CircularInt& b);
     friend CircularInt operator +(const int num , CircularInt& a);
     friend CircularInt operator +(CircularInt& a , const int num);
-    friend CircularInt operator +=(CircularInt& a ,CircularInt& b);
+   
     friend CircularInt operator *(const int num , CircularInt& a);
     friend CircularInt operator *(CircularInt& a , const int num);
     friend CircularInt operator *(CircularInt& a ,CircularInt& b);
-    friend CircularInt operator *=(CircularInt& a ,CircularInt& b);
+    
     
     //CircularInt& operator *=(CircularInt& a); 
     
@@ -88,6 +87,13 @@ CircularInt& operator =(int num);
 
     CircularInt& operator *=(int num);
     CircularInt& operator /=(int num);
+     CircularInt& operator -=(CircularInt& a);
+   CircularInt& operator-= ( int num); 
+    CircularInt& operator +=(CircularInt& a);
+     CircularInt& operator *=(CircularInt& a);
+  
+    
+   
 //        // add one or minus one
     CircularInt& operator++(int);
     CircularInt& operator ++();

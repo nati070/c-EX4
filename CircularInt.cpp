@@ -33,13 +33,7 @@ CircularInt operator +(CircularInt& a ,CircularInt& b){
     normalization(num1, t);
     return t;
 }
-CircularInt operator +=(CircularInt& a ,CircularInt& b){
-    CircularInt t = a;
-    int num1 = a.current + b.current;
 
-    normalization(num1, t);
-    return t;
-}
 CircularInt operator /(const int num ,CircularInt& a){
     CircularInt z = a;
     
@@ -73,17 +67,8 @@ CircularInt operator+ (const int num , CircularInt& a){
     normalization(num1 , t);
     return t;
 }
-CircularInt& CircularInt::operator +=(int num) {
-   num = current + num;
-   normalization(num ,*this);
-    return *this;
-}
 
-CircularInt& CircularInt::operator *=(int num){
-   int num1=current*num;
-	normalization(num1,*this);
-return *this;
-}
+
 CircularInt& CircularInt::operator /=(int num){    
     if(current%num != 0) {
        throw string("There is no number x in {" + to_string(current) + "," + to_string(last) + "} such that x*" 
@@ -96,23 +81,30 @@ CircularInt& CircularInt::operator /=(int num){
 // // add one or minus one
 CircularInt&  CircularInt::operator++(int){
    current++;
-   current = current % last;
+   normalization(current , *this);
     return *this;
 }
 CircularInt&  CircularInt::operator ++(){
     ++current;
-    current = current % last;
+     normalization(current , *this);
     return *this;
 }
 CircularInt& CircularInt::operator --(int){
-   current--;
-  while(current < 0) current = current + last;
-    return *this;
+ if ((current   -  1)>=first)
+		current-=1;
+	else{
+		current = last;
+	}
+	return *this;
 }
-CircularInt&  CircularInt::operator --(){
-    --current;
-     while(current < 0) current = current + last;
-    return *this;
+
+CircularInt& CircularInt::operator--() {
+	if ((current  -  1)>=first)
+		current-=1;
+	else{
+		current = last;
+	}
+	return *this;
 }
 
 // //Comparison
@@ -255,23 +247,16 @@ CircularInt operator *(CircularInt& a ,CircularInt& b){
     normalization(num1, t);
     return t;
 }
-CircularInt operator *=(CircularInt& a ,CircularInt& b){
-    CircularInt t = a;
-    int num1 = a.current * b.current;
-    normalization(num1, t);
-    return t;
-}
+
 CircularInt operator -(CircularInt& a ,CircularInt& b){
     CircularInt t = a;
     int num1 = a.current - b.current;
     normalization(num1, t);
     return t;
 }
-CircularInt operator -=(CircularInt& a ,CircularInt& b){
-    CircularInt t = a;
-    int num1 = a.current - b.current;
-    normalization(num1, t);
-    return t;
+CircularInt& CircularInt:: operator-= (CircularInt& c){
+	*this-=c.current;
+	return *this;
 }
 CircularInt operator- (CircularInt& a, const int num){
     CircularInt t = a;
@@ -285,16 +270,15 @@ CircularInt operator- (const int num , CircularInt& a){
     normalization(num1 , t);
     return t;
 }
-CircularInt operator-= (CircularInt& a, const int num){
-    CircularInt t = a;
-    int num1 =  a.current - num;
-    normalization(num1 , t);
-    return t;
+CircularInt& CircularInt::operator -= (int num){
+  int num1=current-num;
+	normalization(num1,*this);
+return *this;
 }
 
  CircularInt operator/ (CircularInt& a,CircularInt& b){
   if(a.current%b.current != 0) {
-       throw string("There is no number x in { " +  to_string(a.current)+ "," + to_string(a.last)+" such that x*" 
+       throw std::invalid_argument("There is no number x in { " +  to_string(a.current)+ "," + to_string(a.last)+" such that x*" 
                       + to_string(a.current) + "=" + to_string(a.last));
    }
     a.current/=b.current;
@@ -303,7 +287,7 @@ CircularInt operator-= (CircularInt& a, const int num){
 }
 CircularInt operator/= (CircularInt& a,CircularInt& b){
   if(a.current%b.current != 0) {
-       throw string("There is no number x in { " +  to_string(a.current)+ "," + to_string(a.last)+" such that x*" 
+       throw std::invalid_argument("There is no number x in { " +  to_string(a.current)+ "," + to_string(a.last)+" such that x*" 
                       + to_string(a.current) + "=" + to_string(a.last));
    }
     a.current/=b.current;
@@ -311,7 +295,26 @@ CircularInt operator/= (CircularInt& a,CircularInt& b){
     return a;
 }
 
+CircularInt& CircularInt:: operator+= (CircularInt& a){
+	*this+=a.current;
+	return *this;
+}
 
+CircularInt& CircularInt:: operator+= ( int num){	
+	int num1=current+num;
+	normalization(num1,*this);
+	return *this;
+}
+CircularInt& CircularInt:: operator*= (CircularInt& c){
+	*this*=c.current;
+	return *this;
+}
+
+CircularInt& CircularInt::operator*= ( int num){
+	int num1=current*num;
+	normalization(num1,*this);
+	return *this;
+}
 
 
 
