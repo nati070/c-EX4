@@ -8,7 +8,13 @@ using namespace std;
 CircularInt::CircularInt(int a,int b){
   first = a;
   last = b;
-  current = a; 
+  current = a;
+  if(b < a){
+    first = b;
+    last = a;
+    current = b;
+
+  } 
 }
 
 //negetive and positive 
@@ -111,10 +117,9 @@ CircularInt&  CircularInt::operator --(){
 
 // //Comparison
 bool operator ==(CircularInt&  a , CircularInt&  b){
-    normalization(a.current, a);
-    normalization(b.current, b);
-    if (b.current == a.current)return true;
-    return false;
+  if(a.first==b.first && a.last==b.last && a.current==b.current)
+		return true;
+return false; 
 }
 bool operator ==(CircularInt&  a , int num){
     if(a.current == num)return true;

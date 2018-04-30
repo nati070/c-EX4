@@ -62,19 +62,18 @@ class CircularInt{
     public:
     CircularInt(int a, int b);
     friend void normalization(int num, CircularInt& c) {  // normalization function
-    int end = c.last;
-    int st = c.first;
-    if(num > end){
-        while(num > end){
-       num = num - end;
-        }
-    }
-    if(num < 0){
-        while(num < st){
-         num = num + end;   
-        }
-    }
-    c.current = num;
+    int area=c.last-c.first+1;
+		if(num>c.last){
+			while(num>c.last){
+				num-=area;
+			}
+		}
+		if(num<c.first){
+			while(num<c.first){
+				num+=area;
+			}
+		}
+c.current=num;
     }
 
 CircularInt& operator =(int num);

@@ -10,26 +10,26 @@ std::string cirToString(const CircularInt &circularInt)
     return ss.str();
 }
 
-TEST_CASE("testing the operation == equals where CircularInt==CircularInt", "=="){
-	CircularInt a1 {1, 12};
-	CircularInt a2 {1, 12};
-	CircularInt a3 {4, 9};
-	CircularInt a4 {1, 12};
-	CircularInt a5 {12, 1};
-	CircularInt a6 {-3, 2};
-	CircularInt a7 {2, -3};
-	CircularInt a8 {-12, -1};
-	a4+=7;
-   	 REQUIRE(a1 == a2);
-	 REQUIRE(a1 == a5);
-	 REQUIRE(a6 == a7);
-	 REQUIRE(!(a1 == a4));
- 	 REQUIRE(!(a1 == a8));
-	 REQUIRE(!(a1 == a3));
+// TEST_CASE("testing the operation == equals where CircularInt==CircularInt", "=="){
+// 	CircularInt a1 {1, 12};
+// 	CircularInt a2 {1, 12};
+// 	CircularInt a3 {4, 9};
+// 	CircularInt a4 {1, 12};
+// 	CircularInt a5 {12, 1};
+// 	CircularInt a6 {-3, 2};
+// 	CircularInt a7 {2, -3};
+// 	CircularInt a8 {-12, -1};
+// 	a4+=7;
+//    	 REQUIRE(a1 == a2);
+// 	 REQUIRE(a1 == a5);
+// 	 REQUIRE(a6 == a7);
+// 	 REQUIRE(!(a1 == a4));
+//  	 REQUIRE(!(a1 == a8));
+// 	 REQUIRE(!(a1 == a3));
 	
-}
+// }
 
-// TEST_CASE("testing the operation == equals where int==CircularInt") {
+// TEST_CASE("testing the operation == equals where int==CircularInt", "==") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {-4, 9};
 
@@ -39,7 +39,7 @@ TEST_CASE("testing the operation == equals where CircularInt==CircularInt", "=="
 //  	 REQUIRE(!(a2 == 4));
 // }
 
-// TEST_CASE("testing the operation == equals where CircularInt==int") {
+// TEST_CASE("testing the operation == equals where CircularInt==int", "==") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {-4, 9};
 
@@ -49,7 +49,7 @@ TEST_CASE("testing the operation == equals where CircularInt==CircularInt", "=="
 //  	 REQUIRE(!(4 == a2));
 // }
 
-// TEST_CASE("testing the operation =") {
+// TEST_CASE("testing the operation =" , "==") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {1, 12};
 // 	CircularInt a3 {4, 9};
@@ -61,7 +61,7 @@ TEST_CASE("testing the operation == equals where CircularInt==CircularInt", "=="
 // 	REQUIRE(a3 == a4);
 // }
 
-// TEST_CASE("testing the operation = with int") {
+// TEST_CASE("testing the operation = with int" , "==") {
 // 	CircularInt a1 {1, 12};
 // 	a1=3;
 //    	 REQUIRE(a1.GetValue() == 3);
@@ -75,7 +75,7 @@ TEST_CASE("testing the operation == equals where CircularInt==CircularInt", "=="
 // }
 
 
-// TEST_CASE("testing the operation != not equals ") {
+//  TEST_CASE("testing the operation != not equals " , "==") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {1, 12};
 // 	CircularInt a3 {4, 9};
@@ -95,7 +95,7 @@ TEST_CASE("testing the operation == equals where CircularInt==CircularInt", "=="
 // }
 
 
-// TEST_CASE("testing the operation != not equals where int==CircularInt") {
+// TEST_CASE("testing the operation != not equals where int==CircularInt", "==") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {-4, 9};
 
@@ -103,7 +103,7 @@ TEST_CASE("testing the operation == equals where CircularInt==CircularInt", "=="
 //    	 REQUIRE(a2 != 3);
 // }
 
-// TEST_CASE("testing the operation != not equals where CircularInt==int") {
+// TEST_CASE("testing the operation != not equals where CircularInt==int", "==") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {-4, 9};
 
@@ -112,15 +112,15 @@ TEST_CASE("testing the operation == equals where CircularInt==CircularInt", "=="
 // }
 
 
-// TEST_CASE("testing the the operation < ") {
-// 	CircularInt a1 {1, 12};
-// 	CircularInt a2 {1,9};
-// 	CircularInt a3 {-3, 1};
-// 	CircularInt a4 {-4, -2};
-// 	REQUIRE(!(a1<a2));
-// 	REQUIRE(a1<a3);
-// 	REQUIRE(a3<a4);	
-// }
+TEST_CASE("testing the the operation < " , "==") {
+	CircularInt a1 {1, 12};
+	CircularInt a2 {1,9};
+	CircularInt a3 {-3, 1};
+	CircularInt a4 {-4, -2};
+	REQUIRE(!(a1<a2));
+	REQUIRE(a1<a3);
+	REQUIRE(a3<a4);	
+}
 
 // TEST_CASE("testing the the operation > ") {
 // 	CircularInt a1 {1, 12};
