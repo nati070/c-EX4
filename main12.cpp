@@ -12,12 +12,13 @@ std::string cirToString(const CircularInt &circularInt)
 
 TEST_CASE("equals","==")
 {
-    CircularInt a1 {1, 12};
-	CircularInt a2 {-4, 9};
+    // REQUIRE
+CircularInt a1 {1, 12};
+	CircularInt a2 {1,9};
+	CircularInt a3 {-3, 1};
+	CircularInt a4 {-4, -2};
+	// REQUIRE(!(a1<a2));
+	// REQUIRE(a1<a3);
+REQUIRE(a3<a4); 
 
-   	 REQUIRE(a1 == 1);
-     cout << a2;
-   	 REQUIRE(a2 == -4);
-	 REQUIRE(!(a1 == 10));
-REQUIRE(!(a2 == 4));
 }

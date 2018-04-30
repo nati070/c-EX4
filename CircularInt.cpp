@@ -6,11 +6,10 @@
 using namespace std;
 //constarctur
 CircularInt::CircularInt(int a,int b){
+    if(b >0){
     y = b;
     x = a; 
-    if(x > y){
-        x = b;
-        y = a;
+   
     }
 }
 //negetive and positive 
