@@ -80,9 +80,9 @@ CircularInt& CircularInt::operator +=(int num) {
 }
 
 CircularInt& CircularInt::operator *=(int num){
-   current = current * num;
-   current = current % last;
-   return *this;
+   int num1=current*num;
+	normalization(num1,*this);
+return *this;
 }
 CircularInt& CircularInt::operator /=(int num){    
     if(current%num != 0) {
@@ -144,71 +144,88 @@ bool operator !=(int num , CircularInt& a){
 }
 //big or small
 bool operator <(CircularInt&  a , CircularInt&  b){
-    CircularInt tmp(a);
-	normalization(b.current,tmp);
-	if(a.current<tmp.current)
+    CircularInt z = a;
+	normalization(b.current,z);
+	if(a.current<z.current)
 		return true;
 return false; 
 }
 bool operator <(CircularInt&  a , int num){
-    normalization(num,a);
-    if(a.current < num)return true;
-    return false;
+     CircularInt tmp(a);
+	normalization(num,tmp);
+	if(a.current<tmp.current)
+		return true;
+return false; 
 }
 bool operator <(int num , CircularInt& a){
-normalization(num,a);
-    if(num < a.current)return true;
-    return false;
+   CircularInt z = a;
+	normalization(num,z);
+	if(a.current > z.current)
+		return true;
+        return false; 
 }
 bool operator >(CircularInt&  a , CircularInt&  b){
-    normalization(a.current,a);
-    normalization(b.current,b);
-    if (a.current > b.current)return true;
-    return false;
+      CircularInt tmp(a);
+	normalization(b.current,tmp);
+	if(a.current>tmp.current)
+		return true;
+        return false;
 }
 bool operator >(CircularInt&  a , int num){
-normalization(num,a);
-    if(a.current > num)return true;
-    return false;
+  CircularInt z = a;
+	normalization(num,z);
+	if(a.current>z.current)
+		return true;
+        return false; 
 }
 bool operator >(int num , CircularInt& a){
-    normalization(num,a);
-    if(num > a.current)return true;
-    return false;
+    CircularInt z = a;
+	normalization(num,z);
+	if(a.current<z.current)
+		return true;
+        return false; 
 }
 bool operator >=(CircularInt&  a , CircularInt&  b){
-    normalization(a.current,a);
-    normalization(b.current,b);
-    if (a.current >= b.current)return true;
-    return false;
+      CircularInt tmp(a);
+	normalization(b.current,tmp);
+	if(a.current>=tmp.current)
+		return true;
+        return false;
 }
 bool operator >=(CircularInt&  a , int num){
-   normalization(num,a);
-    if(a.current >= num)return true;
-    return false;
+      CircularInt z = a;
+	normalization(num,z);
+	if(a.current>=z.current)
+		return true;
+        return false;
 }
 bool operator >=(int num , CircularInt& a){
-normalization(num,a);
-    if(num >= a.current)return true;
-    return false;
+   CircularInt z = a;
+	normalization(num,z);
+	if(a.current<=z.current)
+		return true;
+        return false;
 }
 bool operator <=(CircularInt&  a , CircularInt&  b){
-    CircularInt tmp(a);
+     CircularInt tmp(a);
 	normalization(b.current,tmp);
-	if(a.current<tmp.current){
+	if(a.current<=tmp.current)
 		return true;
-    }
-    return false;
+        return false;
 }
 bool operator <=(CircularInt&  a , int num){
-normalization(num,a);
-    if(a.current <= num)return true;
-    return false;
+   CircularInt z = a;
+	normalization(num,z);
+	if(a.current<=z.current)
+		return true;
+        return false;
 }
 bool operator <=(int num , CircularInt& a){
-    normalization(num,a);
-    if(num <= a.current)return true;
-    return false;
+    CircularInt z = a;
+	normalization(num,z);
+	if(a.current>=z.current)
+		return true;
+        return false;
 }
 
 //  //input anf output operator
@@ -275,6 +292,24 @@ CircularInt operator-= (CircularInt& a, const int num){
     return t;
 }
 
+ CircularInt operator/ (CircularInt& a,CircularInt& b){
+  if(a.current%b.current != 0) {
+       throw string("There is no number x in { " +  to_string(a.current)+ "," + to_string(a.last)+" such that x*" 
+                      + to_string(a.current) + "=" + to_string(a.last));
+   }
+    a.current/=b.current;
+    normalization(a.current,a);
+    return a;
+}
+CircularInt operator/= (CircularInt& a,CircularInt& b){
+  if(a.current%b.current != 0) {
+       throw string("There is no number x in { " +  to_string(a.current)+ "," + to_string(a.last)+" such that x*" 
+                      + to_string(a.current) + "=" + to_string(a.last));
+   }
+    a.current/=b.current;
+    normalization(a.current,a);
+    return a;
+}
 
 
 

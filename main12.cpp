@@ -112,17 +112,17 @@ std::string cirToString(const CircularInt &circularInt)
 // }
 
 
-TEST_CASE("testing the the operation < " , "==") {
-	CircularInt a1 {1, 12};
-	CircularInt a2 {1,9};
-	CircularInt a3 {-3, 1};
-	CircularInt a4 {-4, -2};
-	REQUIRE(!(a1<a2));
-	REQUIRE(a1<a3);
-	REQUIRE(a3<a4);	
-}
+// TEST_CASE("testing the the operation < " , "==") {
+// 	CircularInt a1 {1, 12};
+// 	CircularInt a2 {1,9};
+// 	CircularInt a3 {-3, 1};
+// 	CircularInt a4 {-4, -2};
+// 	REQUIRE(!(a1<a2));
+// 	REQUIRE(a1<a3);
+// 	REQUIRE(a3<a4);	
+// }
 
-// TEST_CASE("testing the the operation > ") {
+// TEST_CASE("testing the the operation > " , "=") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {1,9};
 // 	CircularInt a3 {-3, 1};
@@ -133,7 +133,7 @@ TEST_CASE("testing the the operation < " , "==") {
 // 	REQUIRE(a4>a3);	
 // }
 
-// TEST_CASE("testing the the operation <= ") {
+// TEST_CASE("testing the the operation <= " , "=") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {1,9};
 // 	CircularInt a3 {-3, 1};
@@ -144,7 +144,7 @@ TEST_CASE("testing the the operation < " , "==") {
 // 	REQUIRE(!(a4<=a3));	
 // }
 
-// TEST_CASE("testing the the operation >= ") {
+// TEST_CASE("testing the the operation >= ", "") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {1,9};
 // 	CircularInt a3 {-3, 1};
@@ -155,7 +155,7 @@ TEST_CASE("testing the the operation < " , "==") {
 // 	REQUIRE(a4>=a3);	
 // }
 
-// TEST_CASE("testing the the operation < with int after <") {
+// TEST_CASE("testing the the operation < with int after <" , "") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {-3, 1};
 // 	REQUIRE(!(a1<1));
@@ -165,7 +165,7 @@ TEST_CASE("testing the the operation < " , "==") {
 // 	REQUIRE(!(a1<-3));	
 // }
 
-// TEST_CASE("testing the the operation > with int after >") {
+// TEST_CASE("testing the the operation > with int after >" ,",") {
 // 	CircularInt a1 {1, 10};
 // 	CircularInt a2 {-3, 1};
 // 	REQUIRE(!(a1>-3));
@@ -176,7 +176,7 @@ TEST_CASE("testing the the operation < " , "==") {
 // 	REQUIRE(a2>2);
 // }
 
-// TEST_CASE("testing the the operation <= with int after <=") {
+// TEST_CASE("testing the the operation <= with int after <=" , "") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {-3, 1};
 // 	REQUIRE(a1<=1);
@@ -186,23 +186,23 @@ TEST_CASE("testing the the operation < " , "==") {
 // 	REQUIRE(!(a1<=-3));	
 // }
 
-// TEST_CASE("testing the the operation >= with int after >=") {
-// 	CircularInt a1 {1, 10};
-// 	CircularInt a2 {-3, 1};
-// 	REQUIRE(!(a1>=-3));
-// 	REQUIRE(a1>=1);
-// 	a1+=3;
-// 	a2+=3;
-// 	REQUIRE(a1>=12);
-// 	REQUIRE(a2>=2);
-// }
+// TEST_CASE("testing the the operation >= with int after >=" ,"") {
+// // 	CircularInt a1 {1, 10};
+// // 	CircularInt a2 {-3, 1};
+// // 	REQUIRE(!(a1>=-3));
+// // 	REQUIRE(a1>=1);
+// // 	a1+=3;
+// // 	a2+=3;
+// // 	REQUIRE(a1>=12);
+// // 	REQUIRE(a2>=2);
+// // }
 
-// TEST_CASE("testing the the operation < with int before <") {
+// TEST_CASE("testing the the operation < with int before <" , "") {
 // 	CircularInt a1 {1, 10};
 // 	CircularInt a2 {-3, 1};
-// 	REQUIRE(!(1<a1));
-// 	REQUIRE(!(-3<a1));
-// 	REQUIRE(!(1<a1));
+// 	// REQUIRE(!(1<a1));
+// 	// REQUIRE(!(-3<a1));
+// 	 //REQUIRE(!(1<a1));
 // 	a1+=3;
 // 	a2+=3;
 // 	REQUIRE(12<a1);
@@ -210,7 +210,7 @@ TEST_CASE("testing the the operation < " , "==") {
 	
 // }
 
-// TEST_CASE("testing the the operation > with int before >") {
+// TEST_CASE("testing the the operation > with int before >","") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {-3, 1};
 // 	REQUIRE(5>a1);
@@ -220,7 +220,7 @@ TEST_CASE("testing the the operation < " , "==") {
 
 // }
 
-// TEST_CASE("testing the the operation <= with int before <=") {
+// TEST_CASE("testing the the operation <= with int before <=","") {
 // 	CircularInt a1 {1, 10};
 // 	CircularInt a2 {-3, 1};
 // 	REQUIRE(!(-3<=a1));
@@ -231,7 +231,7 @@ TEST_CASE("testing the the operation < " , "==") {
 // 	REQUIRE(2<=a2);
 // }
 
-// TEST_CASE("testing the the operation >= with int before >=") {
+// TEST_CASE("testing the the operation >= with int before >=" , "") {
 // 	CircularInt a1 {1, 12};
 // 	CircularInt a2 {-3, 1};
 // 	REQUIRE(1>=a1);
@@ -243,7 +243,7 @@ TEST_CASE("testing the the operation < " , "==") {
 	
 // }
 
-// TEST_CASE("testing the operation + with int after the + ") {
+// TEST_CASE("testing the operation + with int after the + " , "") {
 // 	CircularInt a {1, 10};
 // 	CircularInt b(a);
 // 	b=a+7;
@@ -265,7 +265,7 @@ TEST_CASE("testing the the operation < " , "==") {
 
 
 
-// TEST_CASE("testing the operation + with int before the +") {
+// TEST_CASE("testing the operation + with int before the +" , "") {
 // 	CircularInt a {6,15};
 // 	CircularInt b(a);
 // 	b=7+a;
@@ -284,7 +284,7 @@ TEST_CASE("testing the the operation < " , "==") {
 	
 // }
 
-// TEST_CASE("testing the operation * with int after the * ") {
+// TEST_CASE("testing the operation * with int after the * " ,"") {
 // 	CircularInt a {1, 10};
 // 	CircularInt b(a);
 // 	b=a*2;
@@ -302,11 +302,12 @@ TEST_CASE("testing the the operation < " , "==") {
 //    	REQUIRE(d.GetValue() == 0);	
 // }
 
-// TEST_CASE("testing the operation *= with int") {
+// TEST_CASE("testing the operation *= with int" , "") {
 // 	CircularInt a {3, 10};
 // 	a*=2;
 //    	REQUIRE(a.GetValue() == 6);
 // 	a*=3;
+//     cout <<a;
 //    	REQUIRE(a.GetValue() ==10);
 // 	a*=1;
 //    	REQUIRE(a.GetValue() == 10);
@@ -319,7 +320,7 @@ TEST_CASE("testing the the operation < " , "==") {
 // }
 
 
-// TEST_CASE("testing the operation * with int before the *") {
+// TEST_CASE("testing the operation * with int before the *" ,"") {
 // 	CircularInt a {2,7};
 // 	CircularInt b(a);
 // 	b=2*a;
@@ -340,35 +341,36 @@ TEST_CASE("testing the the operation < " , "==") {
 // }
 
 
-// TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ) {
-// 	CircularInt tmp1 {3,12};
-// 	CircularInt tmp2 {3,12};
-// 	tmp1/=tmp2;
-// 	REQUIRE(tmp1.GetValue() == 11);
-// 	REQUIRE(tmp2.GetValue() == 3);
+TEST_CASE("testing the operator/= function where CircularInt/=CircularInt" ,"," ) {
+	CircularInt tmp1 {3,12};
+	CircularInt tmp2 {3,12};
+	tmp1/=tmp2;
+    cout << tmp1;
+	//REQUIRE(tmp1.GetValue() == 11);
+	//REQUIRE(tmp2.GetValue() == 3);
 	
-// 	CircularInt tmp3 {2,8};
-// 	tmp1/=tmp3;
-// 	REQUIRE(tmp1.GetValue() == 11);
+	// CircularInt tmp3 {2,8};
+	// tmp1/=tmp3;
+	// REQUIRE(tmp1.GetValue() == 11);
 
 
-// 	CircularInt tmp11 {-3,2};
-// 	CircularInt tmp22 {-3,2};
-// 	tmp11/=tmp22;
-// 	REQUIRE(tmp11.GetValue() == -3);
-// 	REQUIRE(tmp22.GetValue() == -3);
+	// CircularInt tmp11 {-3,2};
+	// CircularInt tmp22 {-3,2};
+	// tmp11/=tmp22;
+	// REQUIRE(tmp11.GetValue() == -3);
+	// REQUIRE(tmp22.GetValue() == -3);
 	
-// 	CircularInt tmp33 {2,8};
-// 	tmp11/=tmp33;
-// 	REQUIRE(tmp11.GetValue() == -3);
+	// CircularInt tmp33 {2,8};
+	// tmp11/=tmp33;
+	// REQUIRE(tmp11.GetValue() == -3);
 
-// 	CircularInt tmp111 {-5,-2};
-// 	tmp111=tmp111+1;
-// 	CircularInt tmp222 {-3,-1};
-// 	tmp111/=tmp222;
-// 	REQUIRE(tmp222.GetValue() == -3);
+	// // CircularInt tmp111 {-5,-2};
+	// // tmp111=tmp111+1;
+	// // CircularInt tmp222 {-3,-1};
+	// // tmp111/=tmp222;
+	// // REQUIRE(tmp222.GetValue() == -3);
 	
-// }
+}
 
 // TEST_CASE("testing the operation +  ") {
 // 	CircularInt a {3, 10};
