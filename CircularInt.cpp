@@ -6,12 +6,16 @@
 using namespace std;
 //constarctur
 CircularInt::CircularInt(int a,int b){
-    if(b >0){
+    if(b>0){
     y = b;
     x = a; 
-   
+    if(y < x){
+        x = b;
+        y = a;
+    }
     }
 }
+
 //negetive and positive 
 CircularInt CircularInt::operator -() {//turn against the clock
 CircularInt z = *this;
@@ -139,60 +143,69 @@ bool operator !=(int num , CircularInt& a){
 }
 //big or small
 bool operator <(CircularInt&  a , CircularInt&  b){
-     
-    if (a.x < b.x)return true;
-    return false;
+    CircularInt tmp(a);
+	normalization(b.x,tmp);
+	if(a.x<tmp.x)
+		return true;
+return false; 
 }
 bool operator <(CircularInt&  a , int num){
-   
+    normalization(num,a);
     if(a.x < num)return true;
     return false;
 }
 bool operator <(int num , CircularInt& a){
-
+normalization(num,a);
     if(num < a.x)return true;
     return false;
 }
 bool operator >(CircularInt&  a , CircularInt&  b){
-
+    normalization(a.x,a);
+    normalization(b.x,b);
     if (a.x > b.x)return true;
     return false;
 }
 bool operator >(CircularInt&  a , int num){
-
+normalization(num,a);
     if(a.x > num)return true;
     return false;
 }
 bool operator >(int num , CircularInt& a){
-    
+    normalization(num,a);
     if(num > a.x)return true;
     return false;
 }
 bool operator >=(CircularInt&  a , CircularInt&  b){
-   
+    normalization(a.x,a);
+    normalization(b.x,b);
     if (a.x >= b.x)return true;
     return false;
 }
 bool operator >=(CircularInt&  a , int num){
-   
+   normalization(num,a);
     if(a.x >= num)return true;
     return false;
 }
 bool operator >=(int num , CircularInt& a){
-
+normalization(num,a);
     if(num >= a.x)return true;
     return false;
 }
 bool operator <=(CircularInt&  a , CircularInt&  b){
-
-    if (b.x <= a.x)return true;
+    CircularInt tmp(a);
+	normalization(b.x,tmp);
+	if(a.x<=tmp.x){
+		return true;
+    }
     return false;
 }
 bool operator <=(CircularInt&  a , int num){
+normalization(num,a);
     if(a.x <= num)return true;
     return false;
 }
 bool operator <=(int num , CircularInt& a){
+    normalization(num,a);
     if(num <= a.x)return true;
     return false;
 }

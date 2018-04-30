@@ -17,8 +17,9 @@ CircularInt a1 {1, 12};
 	CircularInt a2 {1,9};
 	CircularInt a3 {-3, 1};
 	CircularInt a4 {-4, -2};
-	// REQUIRE(!(a1<a2));
-	// REQUIRE(a1<a3);
-REQUIRE(a3<a4); 
+	REQUIRE(a1<=a2);
+ 	REQUIRE(a1<=a3);
+	a4+=2;
+   REQUIRE(!(a4<=a3));
 
 }
