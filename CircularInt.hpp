@@ -3,7 +3,7 @@ using namespace std;
 
 class CircularInt{
     private:
-        int x , y;        
+        int first , last , current;        
     
     
 //the normal operators between Object + , - , / , * 
@@ -62,22 +62,25 @@ class CircularInt{
     public:
     CircularInt(int a, int b);
     friend void normalization(int num, CircularInt& c) {  // normalization function
-    int end = c.y;
+    int end = c.last;
+    int st = c.first;
     if(num > end){
-       num = num%end;
+        while(num > end){
+       num = num - end;
+        }
     }
     if(num < 0){
-        while(num < 0){
+        while(num < st){
          num = num + end;   
         }
     }
-    c.x = num;
+    c.current = num;
     }
 
 CircularInt& operator =(int num);
 
     CircularInt& operator +=(int num);
-   CircularInt& operator -=(int num);
+
     CircularInt& operator *=(int num);
     CircularInt& operator /=(int num);
 //        // add one or minus one
@@ -89,5 +92,5 @@ CircularInt& operator =(int num);
 //     // negetive and positive 
      CircularInt operator -();
 //     CircularInt& operator +(); 
-
+int GetValue() {return current;}
  };

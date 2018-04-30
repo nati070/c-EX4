@@ -6,20 +6,15 @@
 using namespace std;
 //constarctur
 CircularInt::CircularInt(int a,int b){
-    if(b>0){
-    y = b;
-    x = a; 
-    if(y < x){
-        x = b;
-        y = a;
-    }
-    }
+  first = a;
+  last = b;
+  current = a; 
 }
 
 //negetive and positive 
 CircularInt CircularInt::operator -() {//turn against the clock
 CircularInt z = *this;
-   normalization(-x , z);
+   normalization(-current , z);
     return z;
 }
 // CircularInt& CircularInt::operator +() {
@@ -28,196 +23,197 @@ CircularInt z = *this;
 // //the normal operators between Object + , - , / , *  , =  
 CircularInt operator +(CircularInt& a ,CircularInt& b){
     CircularInt t = a;
-    int num1 = a.x + b.x;
+    int num1 = a.current + b.current;
     normalization(num1, t);
     return t;
 }
 CircularInt operator +=(CircularInt& a ,CircularInt& b){
     CircularInt t = a;
-    int num1 = a.x + b.x;
+    int num1 = a.current + b.current;
+
     normalization(num1, t);
     return t;
 }
 CircularInt operator /(const int num ,CircularInt& a){
     CircularInt z = a;
     
-    if(z.x%num != 0) {
+    if(z.current%num != 0) {
        throw string("There is no number x in {1,12} such that x*" 
-                      + to_string(num) + "=" + to_string(z.x));
+                      + to_string(num) + "=" + to_string(z.current));
    }
-    z.x = num / z.x;
+    z.current = num / z.current;
     return z;
 }
 CircularInt operator /(CircularInt& a ,const int num){
     CircularInt z = a;
     
-    if(z.x%num != 0) {
+    if(z.current%num != 0) {
        throw string("There is no number x in {1,12} such that x*" 
-                      + to_string(num) + "=" + to_string(z.x));
+                      + to_string(num) + "=" + to_string(z.current));
    }
-    z.x = z.x / num;
+    z.current = z.current / num;
     return z;
 }
 CircularInt operator+ (CircularInt& a, const int num){
     CircularInt t = a;
-    int num1 =  num + a.x;
+    int num1 =  num + a.current;
     normalization(num1 , t);
     return t;
 }
 
 CircularInt operator+ (const int num , CircularInt& a){
     CircularInt t = a;
-    int num1 =  num + a.x;
+    int num1 =  num + a.current;
     normalization(num1 , t);
     return t;
 }
 CircularInt& CircularInt::operator +=(int num) {
-   num = x + num;
+   num = current + num;
    normalization(num ,*this);
     return *this;
 }
 
 CircularInt& CircularInt::operator *=(int num){
-   x = x * num;
-   x = x%y;
+   current = current * num;
+   current = current % last;
    return *this;
 }
 CircularInt& CircularInt::operator /=(int num){    
-    if(x%num != 0) {
-       throw string("There is no number x in {" + to_string(x) + "," + to_string(y) + "} such that x*" 
-                      + to_string(num) + "=" + to_string(x));
+    if(current%num != 0) {
+       throw string("There is no number x in {" + to_string(current) + "," + to_string(last) + "} such that x*" 
+                      + to_string(num) + "=" + to_string(current));
    }
-    x = x / num;
+    current = current / num;
     return *this;
 }
 
 // // add one or minus one
 CircularInt&  CircularInt::operator++(int){
-   x++;
-   x = x%y;
+   current++;
+   current = current % last;
     return *this;
 }
 CircularInt&  CircularInt::operator ++(){
-    ++x;
-    x = x%y;
+    ++current;
+    current = current % last;
     return *this;
 }
 CircularInt& CircularInt::operator --(int){
-   x--;
-  while(x < 0) x = x + y;
+   current--;
+  while(current < 0) current = current + last;
     return *this;
 }
 CircularInt&  CircularInt::operator --(){
-    --x;
-     while(x < 0) x = x + y;
+    --current;
+     while(current < 0) current = current + last;
     return *this;
 }
 
 // //Comparison
 bool operator ==(CircularInt&  a , CircularInt&  b){
-    normalization(a.x, a);
-    normalization(b.x, b);
-    if (b.x == a.x)return true;
+    normalization(a.current, a);
+    normalization(b.current, b);
+    if (b.current == a.current)return true;
     return false;
 }
 bool operator ==(CircularInt&  a , int num){
-    if(a.x == num)return true;
+    if(a.current == num)return true;
     return false;
 }
 bool operator ==(int num , CircularInt& a){
-    if(a.x == num)return true;
+    if(a.current == num)return true;
     return false;
 }
 bool operator !=(CircularInt&  a , CircularInt&  b){
-    if (b.x != a.x)return true;
+    if (b.current != a.current)return true;
     return false;
 }
 bool operator !=(CircularInt&  a , int num){
-    if(a.x != num)return true;
+    if(a.current != num)return true;
     return false;
 }
 bool operator !=(int num , CircularInt& a){
      
-    if(a.x != num)return true;
+    if(a.current != num)return true;
     return false;
 }
 //big or small
 bool operator <(CircularInt&  a , CircularInt&  b){
     CircularInt tmp(a);
-	normalization(b.x,tmp);
-	if(a.x<tmp.x)
+	normalization(b.current,tmp);
+	if(a.current<tmp.current)
 		return true;
 return false; 
 }
 bool operator <(CircularInt&  a , int num){
     normalization(num,a);
-    if(a.x < num)return true;
+    if(a.current < num)return true;
     return false;
 }
 bool operator <(int num , CircularInt& a){
 normalization(num,a);
-    if(num < a.x)return true;
+    if(num < a.current)return true;
     return false;
 }
 bool operator >(CircularInt&  a , CircularInt&  b){
-    normalization(a.x,a);
-    normalization(b.x,b);
-    if (a.x > b.x)return true;
+    normalization(a.current,a);
+    normalization(b.current,b);
+    if (a.current > b.current)return true;
     return false;
 }
 bool operator >(CircularInt&  a , int num){
 normalization(num,a);
-    if(a.x > num)return true;
+    if(a.current > num)return true;
     return false;
 }
 bool operator >(int num , CircularInt& a){
     normalization(num,a);
-    if(num > a.x)return true;
+    if(num > a.current)return true;
     return false;
 }
 bool operator >=(CircularInt&  a , CircularInt&  b){
-    normalization(a.x,a);
-    normalization(b.x,b);
-    if (a.x >= b.x)return true;
+    normalization(a.current,a);
+    normalization(b.current,b);
+    if (a.current >= b.current)return true;
     return false;
 }
 bool operator >=(CircularInt&  a , int num){
    normalization(num,a);
-    if(a.x >= num)return true;
+    if(a.current >= num)return true;
     return false;
 }
 bool operator >=(int num , CircularInt& a){
 normalization(num,a);
-    if(num >= a.x)return true;
+    if(num >= a.current)return true;
     return false;
 }
 bool operator <=(CircularInt&  a , CircularInt&  b){
     CircularInt tmp(a);
-	normalization(b.x,tmp);
-	if(a.x<=tmp.x){
+	normalization(b.current,tmp);
+	if(a.current<tmp.current){
 		return true;
     }
     return false;
 }
 bool operator <=(CircularInt&  a , int num){
 normalization(num,a);
-    if(a.x <= num)return true;
+    if(a.current <= num)return true;
     return false;
 }
 bool operator <=(int num , CircularInt& a){
     normalization(num,a);
-    if(num <= a.x)return true;
+    if(num <= a.current)return true;
     return false;
 }
 
 //  //input anf output operator
 ostream& operator <<(ostream& os, const CircularInt& a) {
-    os << a.x;
+    os << a.current;
     return os;
 }
 
 istream& operator >>(istream& is, CircularInt& a){  
-    is >> a.x;  
+    is >> a.current;  
     return is;  
 }  
 CircularInt& CircularInt::operator =(const int num){
@@ -227,49 +223,49 @@ CircularInt& CircularInt::operator =(const int num){
 
 CircularInt operator* (CircularInt& a, const int num){
     CircularInt t = a;
-    int num1 =  num * a.x;
+    int num1 =  num * a.current;
     normalization(num1 , t);
     return t;
 }
 CircularInt operator *(CircularInt& a ,CircularInt& b){
     CircularInt t = a;
-    int num1 = a.x * b.x;
+    int num1 = a.current * b.current;
     normalization(num1, t);
     return t;
 }
 CircularInt operator *=(CircularInt& a ,CircularInt& b){
     CircularInt t = a;
-    int num1 = a.x * b.x;
+    int num1 = a.current * b.current;
     normalization(num1, t);
     return t;
 }
 CircularInt operator -(CircularInt& a ,CircularInt& b){
     CircularInt t = a;
-    int num1 = a.x - b.x;
+    int num1 = a.current - b.current;
     normalization(num1, t);
     return t;
 }
 CircularInt operator -=(CircularInt& a ,CircularInt& b){
     CircularInt t = a;
-    int num1 = a.x - b.x;
+    int num1 = a.current - b.current;
     normalization(num1, t);
     return t;
 }
 CircularInt operator- (CircularInt& a, const int num){
     CircularInt t = a;
-    int num1 = a.x - num;
+    int num1 = a.current - num;
     normalization(num1 , t);
     return t;
 }
 CircularInt operator- (const int num , CircularInt& a){
     CircularInt t = a;
-    int num1 =  num - a.x;
+    int num1 =  num - a.current;
     normalization(num1 , t);
     return t;
 }
 CircularInt operator-= (CircularInt& a, const int num){
     CircularInt t = a;
-    int num1 =  a.x - num;
+    int num1 =  a.current - num;
     normalization(num1 , t);
     return t;
 }
